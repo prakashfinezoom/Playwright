@@ -1,0 +1,1 @@
+npx playwright test tests/EDPMSnegative tests/EDMPSpositive tests/Browse and Upload

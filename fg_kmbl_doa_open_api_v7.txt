@@ -1,0 +1,1627 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "KMBL Digital Onboarding API ",
+        "version": "1.0.0",
+        "description": "KMBL Digital Onboarding -Open API Specification. "
+    },
+    "paths": {
+        "/fg/api/kmbl/do/v1/party/user/add": {
+            "summary": "Add User",
+            "description": "To add the user through API automation",
+            "servers": [
+                {
+                    "url": "https://10.10.46.44:8234/data-service/fg/api/kmbl/do/v1/party/user/add",
+                    "description": ""
+                }
+            ],
+            "post": {
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserAddRequest"
+                            },
+                            "examples": {
+                                "AddUserRequest": {
+                                    "value": {
+                                        "requestHeader": {
+                                            "channel": "KRAMAN",
+                                            "orgType": "FG_BANK",
+                                            "service": "userAdd",
+                                            "userType": "FG_BANKUSER"
+                                        },
+                                        "requestBody": {
+                                            "orgCode": "KOTAK",
+                                            "userId": "KXT62411",
+                                            "employeeCode": "",
+                                            "sourceUserRefId": "",
+                                            "firstName": "Naveen kumar",
+                                            "lastName": "Dv",
+                                            "addressLine1": "No:9,Raja street",
+                                            "addressLine2": "White town",
+                                            "city": "pondicherry",
+                                            "postCode": "605001",
+                                            "email": "DVN.k@gmail.com",
+                                            "mobile": "8655698745",
+                                            "userStatusCode": "ACTIVE",
+                                            "groups": [
+                                                {
+                                                    "code": "SUPER_ADMIN",
+                                                    "action": "LINK"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "parameters": [
+                    {
+                        "examples": {
+                            "content-type": {
+                                "value": "application/json"
+                            }
+                        },
+                        "name": "Content-Type",
+                        "description": "Content-Type",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "examples": {
+                            "apiSessionToken": {
+                                "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBQ0NFU1MiLCJkb21haW4iOiJLT1RBSyIsImFjdGlvbiI6IkFDQ0VTUyIsImlhdCI6MTY4NDgzOTI2NywiZXhwIjoxNjg3NDMxMjY3fQ.BsUkKtnusWFEqZ-5xiPuCgXoQ_89OzPbjcPg_pAaphQ"
+                            }
+                        },
+                        "name": "apiSessionToken",
+                        "description": "A valid API session Token",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/UserAddResponse"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/InvalidApiSessionToken"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/InvalidJsonRequest"
+                    }
+                },
+                "operationId": "User Add",
+                "summary": "To add the new user",
+                "description": "This is to achieve the new middle office add user via API request"
+            },
+            "parameters": [
+                {
+                    "examples": {
+                        "content-type": {
+                            "value": "application/json"
+                        }
+                    },
+                    "name": "Content-Type",
+                    "description": "Content-Type",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "in": "header",
+                    "required": true
+                }
+            ]
+        },
+        "/fg/api/kmbl/do/v1/party/user/status": {
+            "summary": "Modify User Status",
+            "description": "To make the modify user status through API automation",
+            "servers": [
+                {
+                    "url": "https://10.10.46.44:8234/data-service/fg/api/kmbl/do/v1/party/user/status",
+                    "description": ""
+                }
+            ],
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserStatusRequest"
+                            },
+                            "examples": {
+                                "UserStatusRequest": {
+                                    "value": {
+                                        "requestHeader": {
+                                            "channel": "KRAMAN",
+                                            "service": "userStatus",
+                                            "orgType": "FG_BANK",
+                                            "userType": "FG_BANKUSER"
+                                        },
+                                        "requestBody": {
+                                            "orgCode": "KOTAK",
+                                            "userId": "KXT62411",
+                                            "userStatusCode": "ACTIVE"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "parameters": [
+                    {
+                        "examples": {
+                            "content-type": {
+                                "value": "application-json"
+                            }
+                        },
+                        "name": "Content-Type",
+                        "description": "Content-Type",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "examples": {
+                            "apiSessionToken": {
+                                "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBQ0NFU1MiLCJkb21haW4iOiJLT1RBSyIsImFjdGlvbiI6IkFDQ0VTUyIsImlhdCI6MTY4NDgzOTI2NywiZXhwIjoxNjg3NDMxMjY3fQ.BsUkKtnusWFEqZ-5xiPuCgXoQ_89OzPbjcPg_pAaphQ"
+                            }
+                        },
+                        "name": "apiSessionToken",
+                        "description": "A valid API session Token",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/UserStatusResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/InvalidJsonRequest"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/InvalidApiSessionToken"
+                    }
+                },
+                "operationId": "User Status",
+                "summary": "To modify user status",
+                "description": "This is to achieve the modify user status via API request"
+            },
+            "parameters": [
+                {
+                    "examples": {
+                        "content-type": {
+                            "value": "application-json"
+                        }
+                    },
+                    "name": "Content-Type",
+                    "description": "Content-Type",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "in": "header",
+                    "required": true
+                }
+            ]
+        },
+        "/fg/api/kmbl/do/v1/party/user/modify": {
+            "summary": "User Modification",
+            "description": "To modify the user through API automation",
+            "servers": [
+                {
+                    "url": "https://10.10.46.44:8234/data-service/fg/api/kmbl/do/v1/party/user/modify",
+                    "description": ""
+                }
+            ],
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserModifyRequest"
+                            },
+                            "examples": {
+                                "ModifyUserRequest": {
+                                    "value": {
+                                        "requestHeader": {
+                                            "channel": "KRAMAN",
+                                            "service": "userModify",
+                                            "orgType": "FG_BANK",
+                                            "userType": "FG_BANKUSER"
+                                        },
+                                        "requestBody": {
+                                            "orgCode": "KOTAK",
+                                            "userId": "KXT62411",
+                                            "employeeCode": "",
+                                            "sourceUserRefId": "",
+                                            "firstName": "",
+                                            "lastName": "",
+                                            "addressLine1": "",
+                                            "addressLine2": "",
+                                            "city": "",
+                                            "postCode": "",
+                                            "email": "",
+                                            "mobile": "",
+                                            "groups": [
+                                                {
+                                                    "code": "SUPER_ADMIN_SUPER",
+                                                    "action": "UNLINK"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "parameters": [
+                    {
+                        "examples": {
+                            "content-type": {
+                                "value": "application/json"
+                            }
+                        },
+                        "name": "Content-Type",
+                        "description": "Content-Type",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "examples": {
+                            "apiSessionToken": {
+                                "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBQ0NFU1MiLCJkb21haW4iOiJLT1RBSyIsImFjdGlvbiI6IkFDQ0VTUyIsImlhdCI6MTY4NDgzOTI2NywiZXhwIjoxNjg3NDMxMjY3fQ.BsUkKtnusWFEqZ-5xiPuCgXoQ_89OzPbjcPg_pAaphQ"
+                            }
+                        },
+                        "name": "apiSessionToken",
+                        "description": "A valid API session Token",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/UserModifyResponse"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/InvalidJsonRequest"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/InvalidApiSessionToken"
+                    }
+                },
+                "operationId": "User Modify",
+                "summary": "To modify the newly add user with user group assigning",
+                "description": "This is to modify the newly added middle office user via API request "
+            },
+            "parameters": [
+                {
+                    "examples": {
+                        "content-type": {
+                            "value": "application/json"
+                        }
+                    },
+                    "name": "Content-Type",
+                    "description": "Content-Type",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "in": "header",
+                    "required": true
+                }
+            ]
+        }
+    },
+    "components": {
+        "schemas": {
+            "UserAddRequest": {
+                "description": "Identifies the request parameters being used for add user",
+                "required": [
+                    "email",
+                    "mobile",
+                    "orgCode",
+                    "userId",
+                    "channel",
+                    "userStatusCode"
+                ],
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "description": "This indicates Email of whom the access is required to be provided",
+                        "maxLength": 100,
+                        "minLength": 0,
+                        "type": "string",
+                        "example": "alexpandiyan@gmail.com"
+                    },
+                    "mobile": {
+                        "description": "This indicates Mobile of whom the access is required to be provided",
+                        "maxLength": 10,
+                        "type": "string",
+                        "example": "8659741259"
+                    },
+                    "postCode": {
+                        "description": "This indicates Post Code of whom the access is required to be provided",
+                        "maxLength": 16,
+                        "type": "string",
+                        "example": "625002"
+                    },
+                    "userId": {
+                        "description": "This indicates userId of whom the access is required to be provided",
+                        "maxLength": 255,
+                        "type": "string",
+                        "example": "KXT64211"
+                    },
+                    "firstName": {
+                        "description": "This indicates first name of whom the access is required to be provided",
+                        "maxLength": 35,
+                        "type": "string",
+                        "example": "Alex Pandiyan"
+                    },
+                    "lastName": {
+                        "description": "This indicates last name of whom the access is required to be provided",
+                        "maxLength": 35,
+                        "type": "string",
+                        "example": "P"
+                    },
+                    "addressLine1": {
+                        "description": "This indicates addressLine1 of whom the access is required to be provided",
+                        "exclusiveMinimum": false,
+                        "maxLength": 600,
+                        "type": "string",
+                        "example": "No:9,Raja street"
+                    },
+                    "addressLine2": {
+                        "description": "This indicates addressLine2 of whom the access is required to be provided",
+                        "maxLength": 600,
+                        "type": "string",
+                        "example": "White town"
+                    },
+                    "orgCode": {
+                        "description": "To specify the Organization",
+                        "maxLength": 30,
+                        "type": "string",
+                        "example": "KOTAK"
+                    },
+                    "userStatusCode": {
+                        "description": "This indicates code for the active or inactivate the user",
+                        "maxLength": 20,
+                        "type": "string",
+                        "example": "ACTIVE"
+                    },
+                    "orgType": {
+                        "description": "This inicates the bank user",
+                        "maxLength": 0,
+                        "type": "string",
+                        "example": "FG_BANK"
+                    },
+                    "userType": {
+                        "description": "This indicates the bank userType",
+                        "maxLength": 0,
+                        "type": "string",
+                        "example": "FG_BANKUSER"
+                    },
+                    "channel": {
+                        "description": "It indicates the channel of the application",
+                        "maxLength": 30,
+                        "type": "string",
+                        "example": "KRAMAN"
+                    },
+                    "action": {
+                        "description": "This indicates the user group gets assigned to the user",
+                        "type": "string",
+                        "example": "LINK"
+                    },
+                    "code": {
+                        "description": "It Indicates the user group",
+                        "type": "string",
+                        "example": "OPS_MAKER"
+                    },
+                    "employeeCode": {
+                        "description": "This indicates employeeCode of whom the access is required to be provided",
+                        "maxLength": 50,
+                        "type": "string"
+                    },
+                    "sourceUserRefId": {
+                        "description": "This indicates sourceUserRefId of whom the access is required to be provided",
+                        "maxLength": 30,
+                        "type": "string"
+                    },
+                    "city": {
+                        "description": "This indicates city of whom the access is required to be provided",
+                        "maxLength": 100,
+                        "type": "string"
+                    }
+                }
+            },
+            "UserAddResponse": {
+                "description": "Identifies the response parameters being used for add user",
+                "required": [
+                ],
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "description": "Indicates the success details while processing the request",
+                        "maxLength": 50,
+                        "type": "string",
+                        "example": "User added successfully"
+                    },
+                    "service": {
+                        "description": "Indicates the API service name",
+                        "maxLength": 20,
+                        "type": "string",
+                        "example": "addUser"
+                    },
+                    "status": {
+                        "description": "This parameter indicate the status of API",
+                        "maxLength": 20,
+                        "type": "string",
+                        "example": "SUCCESS"
+                    },
+                    "successCode": {
+                        "description": "This parameter indicate the status of API",
+                        "maxLength": 20,
+                        "type": "string",
+                        "example": "00"
+                    },
+                    "orgCode": {
+                        "description": "To specify the Organization",
+                        "maxLength": 30,
+                        "type": "string",
+                        "example": "KOTAK"
+                    },
+                    "userId": {
+                        "description": "This indicates userId of whom the access is required to be provided",
+                        "maxLength": 255,
+                        "type": "string",
+                        "example": "KXT62411"
+                    }
+                }
+            },
+            "UserAddErrorResponse": {
+                "description": "Identifies the error response parameters being used for User Creation",
+                "required": [
+                ],
+                "type": "object",
+                "properties": {
+                    "errorCode": {
+                        "description": "Indicates the error code ",
+                        "maxLength": 20,
+                        "type": "string",
+                        "example": "error-400,error-404,error-409"
+                    },
+                    "errorMessage": {
+                        "description": "Indicates the error details while processing the request",
+                        "maxLength": 100,
+                        "type": "string"
+                    },
+                    "service": {
+                        "description": "Indicates the API service name",
+                        "maxLength": 20,
+                        "type": "string",
+                        "example": "addUser"
+                    },
+                    "status": {
+                        "description": "This parameter indicate the status of API",
+                        "maxLength": 20,
+                        "type": "string",
+                        "example": "ERROR"
+                    },
+                    "orgCode": {
+                        "description": "To specify the Organization",
+                        "maxLength": 30,
+                        "type": "string",
+                        "example": "KOTAK"
+                    },
+                    "userId": {
+                        "description": "This indicates userId of whom the access is required to be provided",
+                        "maxLength": 255,
+                        "type": "string",
+                        "example": "KXT62411"
+                    },
+                    "code": {
+                        "description": "It indicates the user group code",
+                        "type": "string",
+                        "example": "OPS_MAKER_1"
+                    }
+                }
+            },
+            "UserModifyErrorResponse": {
+                "description": "Identifies the error response parameters being used for Modify User",
+                "required": [
+                ],
+                "type": "object",
+                "properties": {
+                    "errorCode": {
+                        "description": "Indicates the error code ",
+                        "maxLength": 20,
+                        "type": "string",
+                        "example": "error-400,error-404"
+                    },
+                    "errorMessage": {
+                        "description": "Indicates the error details while processing the request",
+                        "maxLength": 100,
+                        "type": "string"
+                    },
+                    "service": {
+                        "description": "Indicates the API service name",
+                        "maxLength": 20,
+                        "type": "string",
+                        "example": "userModify"
+                    },
+                    "status": {
+                        "description": "This parameter indicate the status of API",
+                        "maxLength": 20,
+                        "type": "string",
+                        "example": "ERROR"
+                    },
+                    "orgCode": {
+                        "description": "To specify the Organization",
+                        "maxLength": 30,
+                        "type": "string",
+                        "example": "KOTAK"
+                    },
+                    "userId": {
+                        "description": "This indicates userId of whom the access is required to be provided",
+                        "maxLength": 255,
+                        "type": "string",
+                        "example": "KXT62411"
+                    },
+                    "code": {
+                        "description": "It indicates the user group code",
+                        "type": "string",
+                        "example": "OPS_SUPER_ADMIN"
+                    }
+                }
+            },
+            "UserModifyResponse": {
+                "description": "Identifies the response parameters being used for Modify User",
+                "required": [
+                ],
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "description": "Indicates the success details while processing the request",
+                        "maxLength": 50,
+                        "type": "string",
+                        "example": "User modified successfully"
+                    },
+                    "service": {
+                        "description": "Indicates the API service name",
+                        "maxLength": 20,
+                        "type": "string",
+                        "example": "userModify"
+                    },
+                    "status": {
+                        "description": "This parameter indicate the status of API",
+                        "maxLength": 20,
+                        "type": "string",
+                        "example": "SUCCESS"
+                    },
+                    "successCode": {
+                        "description": "This parameter indicate the status of API",
+                        "pattern": "20",
+                        "type": "string",
+                        "example": "00"
+                    },
+                    "orgCode": {
+                        "description": "To specify the Organization",
+                        "maxLength": 30,
+                        "type": "string",
+                        "example": "KOTAK"
+                    },
+                    "userID": {
+                        "description": "This indicates userId of whom the access is required to be provided",
+                        "maxLength": 255,
+                        "type": "string",
+                        "example": "KXT62411"
+                    }
+                }
+            },
+            "UserStatusErrorResponse": {
+                "description": "Identifies the error response parameters being used for Modify User Status",
+                "required": [
+                ],
+                "type": "object",
+                "properties": {
+                    "errorCode": {
+                        "description": "Indicates the error code ",
+                        "maxLength": 20,
+                        "type": "string",
+                        "example": "error-400"
+                    },
+                    "errorMessage": {
+                        "description": "Indicates the error details while processing the request",
+                        "maxLength": 100,
+                        "type": "string"
+                    },
+                    "service": {
+                        "description": "Indicates the API service name",
+                        "maxLength": 20,
+                        "type": "string",
+                        "example": "userStatus"
+                    },
+                    "status": {
+                        "description": "This parameter indicate the status of API",
+                        "maxLength": 20,
+                        "type": "string",
+                        "example": "ERROR"
+                    },
+                    "orgCode": {
+                        "description": "To specify the Organization",
+                        "maxLength": 30,
+                        "type": "string",
+                        "example": "KOTAK"
+                    },
+                    "userId": {
+                        "description": "This indicates userId of whom the access is required to be provided",
+                        "maxLength": 255,
+                        "type": "string",
+                        "example": "KXT62411"
+                    }
+                }
+            },
+            "UserStatusRequest": {
+                "description": "Identifies the request parameters being used for Modify User Status",
+                "required": [
+                    "userStatusCode",
+                    "orgCode",
+                    "userId",
+                    "channel"
+                ],
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "description": "This indicates userId of whom the access is required to be provided",
+                        "maxLength": 0,
+                        "type": "string",
+                        "example": "KXT64211"
+                    },
+                    "userStatusCode": {
+                        "description": "This indicates code for the active or inactivate the user",
+                        "maxLength": 20,
+                        "enum": [
+                            "ACTIVE",
+                            "IN_ACTIVE"
+                        ],
+                        "type": "string",
+                        "example": "ACTIVE,IN_ACTIVE"
+                    },
+                    "orgCode": {
+                        "description": "To specify the Organization",
+                        "maxLength": 0,
+                        "type": "string",
+                        "example": "KOTAK"
+                    },
+                    "channel": {
+                        "description": "It indicates the channel of the application",
+                        "type": "string",
+                        "example": "KRAMAN"
+                    }
+                }
+            },
+            "UserStatusResponse": {
+                "description": "Identifies the response parameters being used for Modify User Status",
+                "required": [
+                ],
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "description": "Indicates the success details while processing the request",
+                        "maxLength": 100,
+                        "type": "string",
+                        "example": "Modify user status successfully"
+                    },
+                    "service": {
+                        "description": "Indicates the API service name",
+                        "maxLength": 20,
+                        "type": "string",
+                        "example": "userStatus"
+                    },
+                    "status": {
+                        "description": "This parameter indicate the status of API",
+                        "maxLength": 20,
+                        "type": "string",
+                        "example": "SUCCESS"
+                    },
+                    "successCode": {
+                        "description": "This parameter indicate the status of API",
+                        "maxLength": 20,
+                        "type": "string",
+                        "example": "00"
+                    },
+                    "orgCode": {
+                        "description": "To specify the Organization",
+                        "maxLength": 30,
+                        "type": "string",
+                        "example": "KOTAK"
+                    },
+                    "userId": {
+                        "description": "This indicates userId of whom the access is required to be provided",
+                        "maxLength": 255,
+                        "type": "string",
+                        "example": "KXT62411"
+                    }
+                }
+            },
+            "UserModifyRequest": {
+                "description": "Identifies the request parameters being used for add user",
+                "required": [
+                    "orgCode",
+                    "userId",
+                    "channel"
+                ],
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "description": "This indicates Email of whom the access is required to be provided",
+                        "maxLength": 100,
+                        "minLength": 0,
+                        "type": "string",
+                        "example": "alexpandiyan@gmail.com"
+                    },
+                    "mobile": {
+                        "description": "This indicates Mobile of whom the access is required to be provided",
+                        "maxLength": 10,
+                        "type": "string",
+                        "example": "8659741259"
+                    },
+                    "postCode": {
+                        "description": "This indicates Post Code of whom the access is required to be provided",
+                        "maxLength": 16,
+                        "type": "string",
+                        "example": "625002"
+                    },
+                    "userId": {
+                        "description": "This indicates userId of whom the access is required to be provided",
+                        "maxLength": 255,
+                        "type": "string",
+                        "example": "KXT64211"
+                    },
+                    "firstName": {
+                        "description": "This indicates first name of whom the access is required to be provided",
+                        "maxLength": 35,
+                        "type": "string",
+                        "example": "Alex Pandiyan"
+                    },
+                    "lastName": {
+                        "description": "This indicates last name of whom the access is required to be provided",
+                        "maxLength": 35,
+                        "type": "string",
+                        "example": "P"
+                    },
+                    "addressLine1": {
+                        "description": "This indicates addressLine1 of whom the access is required to be provided",
+                        "exclusiveMinimum": false,
+                        "maxLength": 600,
+                        "type": "string",
+                        "example": "No:9,Raja street"
+                    },
+                    "addressLine2": {
+                        "description": "This indicates addressLine2 of whom the access is required to be provided",
+                        "maxLength": 600,
+                        "type": "string",
+                        "example": "White town"
+                    },
+                    "orgCode": {
+                        "description": "To specify the Organization",
+                        "maxLength": 30,
+                        "type": "string",
+                        "example": "KOTAK"
+                    },
+                    "orgType": {
+                        "description": "This inicates the bank user",
+                        "maxLength": 0,
+                        "type": "string",
+                        "example": "FG_BANK"
+                    },
+                    "userType": {
+                        "description": "This indicates the bank userType",
+                        "maxLength": 0,
+                        "type": "string",
+                        "example": "FG_BANKUSER"
+                    },
+                    "channel": {
+                        "description": "It indicates the channel of the application",
+                        "maxLength": 30,
+                        "type": "string",
+                        "example": "KRAMAN"
+                    },
+                    "action": {
+                        "description": "This indicates the user group gets assigned to the user",
+                        "enum": [
+                            "LINK",
+                            "UNLINK"
+                        ],
+                        "type": "string",
+                        "example": "LINK,UNLINK"
+                    },
+                    "code": {
+                        "description": "It Indicates the user group",
+                        "type": "string",
+                        "example": "OPS_MAKER"
+                    },
+                    "employeeCode": {
+                        "description": "This indicates employeeCode of whom the access is required to be provided",
+                        "maxLength": 50,
+                        "type": "string"
+                    },
+                    "sourceUserRefId": {
+                        "description": "This indicates sourceUserRefId of whom the access is required to be provided",
+                        "maxLength": 30,
+                        "type": "string"
+                    },
+                    "city": {
+                        "description": "This indicates city of whom the access is required to be provided",
+                        "maxLength": 100,
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "responses": {
+            "UserAddErrorResponse3": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserModifyErrorResponse"
+                        },
+                        "examples": {
+                            "UserAddErrorResponse3": {
+                                "value": {
+                                    "serviceResponse": {
+                                        "responseHeader": {
+                                            "service": "userAdd",
+                                            "status": "ERROR"
+                                        },
+                                        "responseBody": {
+                                            "responseDetails": [
+                                                {
+                                                    "orgCode": "KOTAK",
+                                                    "errorMessage": "This group code doesn't exist",
+                                                    "groups": [
+                                                        {
+                                                            "code": [
+                                                                "SUPER_ADMIN_SUPER5",
+                                                                "SUPER_ADMIN_SUPER2635"
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "errorCode": "error-404"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Indicates the error response for the invalid group code failure occurances."
+            },
+            "UserAddErrorResponse2": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserAddErrorResponse"
+                        },
+                        "examples": {
+                            "UserAddErrorResponse2": {
+                                "value": {
+                                    "serviceResponse": {
+                                        "responseHeader": {
+                                            "service": "userAdd",
+                                            "status": "ERROR"
+                                        },
+                                        "responseBody": {
+                                            "responseDetails": [
+                                                {
+                                                    "orgCode": "KOTAK",
+                                                    "errorMessage": "This user already exists",
+                                                    "errorCode": "error-409",
+                                                    "userId": "KXT62411"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Indicates the error response while creating the existing user"
+            },
+            "UserAddErrorResponse": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserAddErrorResponse"
+                        },
+                        "examples": {
+                            "UserAddErrorResponse": {
+                                "value": {
+                                    "serviceResponse": {
+                                        "responseHeader": {
+                                            "service": "userAdd",
+                                            "status": "ERROR"
+                                        },
+                                        "responseBody": {
+                                            "responseDetails": [
+                                                {
+                                                    "errorMessage": "channel is mandatory!",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "orgCode is mandatory!",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "userStatusCode is mandatory!",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "userId is mandatory!",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "email is mandatory!",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "mobile is mandatory!",
+                                                    "errorCode": "error-400"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Indicates the error response for the mandatory field failure occurances"
+            },
+            "UserAddErrorResponse4": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserAddErrorResponse"
+                        },
+                        "examples": {
+                            "userAddErrorResponse4": {
+                                "value": {
+                                    "serviceResponse": {
+                                        "responseHeader": {
+                                            "service": "userAdd",
+                                            "status": "ERROR"
+                                        },
+                                        "responseBody": {
+                                            "responseDetails": [
+                                                {
+                                                    "errorMessage": "Invalid characters are not allowed in userId !",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "Invalid characters are not allowed in firstName !",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "Invalid characters are not allowed in lastName !",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "Invalid email address!",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "Invalid mobile number!",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "Invalid orgType!",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "Invalid userType!",
+                                                    "errorCode": "error-400"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Indicates the error response for the invalid characters failure occurances."
+            },
+            "UserAddResponse": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserAddResponse"
+                        },
+                        "examples": {
+                            "UserAddResponse": {
+                                "value": {
+                                    "serviceResponse": {
+                                        "responseHeader": {
+                                            "service": "userAdd",
+                                            "status": "SUCCESS"
+                                        },
+                                        "responseBody": {
+                                            "responseDetails": [
+                                                {
+                                                    "orgCode": "KOTAK",
+                                                    "message": "User added successfully",
+                                                    "userId": "KXT62411",
+                                                    "responseCode": "00"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Indicates the add user API response"
+            },
+            "UserModifyErrorResponse": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserModifyErrorResponse"
+                        },
+                        "examples": {
+                            "UserModifyErrorResponse": {
+                                "value": {
+                                    "serviceResponse": {
+                                        "responseHeader": {
+                                            "service": "userModify",
+                                            "status": "ERROR"
+                                        },
+                                        "responseBody": {
+                                            "responseDetails": [
+                                                {
+                                                    "errorMessage": "channel is mandatory!",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "orgCode is mandatory!",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "userId is mandatory!",
+                                                    "errorCode": "error-400"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Indicates the error response for the mandatory field failure occurances."
+            },
+            "UserModifyResponse": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserModifyResponse"
+                        },
+                        "examples": {
+                            "UserModifyResponse": {
+                                "value": {
+                                    "serviceResponse": {
+                                        "responseHeader": {
+                                            "service": "userModify",
+                                            "status": "SUCCESS"
+                                        },
+                                        "responseBody": {
+                                            "responseDetails": [
+                                                {
+                                                    "orgCode": "KOTAK",
+                                                    "message": "User modified successfully",
+                                                    "userId": "KXT62411",
+                                                    "responseCode": "00"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Indicates the modify user API response"
+            },
+            "UserModifyErrorResponse3": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserModifyErrorResponse"
+                        },
+                        "examples": {
+                            "UserModifyErrorResponse3": {
+                                "value": {
+                                    "serviceResponse": {
+                                        "responseHeader": {
+                                            "service": "userModify",
+                                            "status": "ERROR"
+                                        },
+                                        "responseBody": {
+                                            "responseDetails": [
+                                                {
+                                                    "orgCode": "KOTAK",
+                                                    "errorMessage": "This group code doesn't exist",
+                                                    "groups": [
+                                                        {
+                                                            "code": [
+                                                                "OPS_MAKER",
+                                                                "OPS_MAKER_TRADE"
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "errorCode": "error-404"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": ""
+            },
+            "UserModifyErrorResponse2": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserModifyErrorResponse"
+                        },
+                        "examples": {
+                            "UserModifyErrorResponse2": {
+                                "value": {
+                                    "serviceResponse": {
+                                        "responseHeader": {
+                                            "service": "userModify",
+                                            "status": "ERROR"
+                                        },
+                                        "responseBody": {
+                                            "responseDetails": [
+                                                {
+                                                    "orgCode": "KOTAK",
+                                                    "errorMessage": "This user doesn't exist",
+                                                    "errorCode": "error-404",
+                                                    "userId": "KXT6241155"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Indicates the error response for the user doesn't exist failure occurances."
+            },
+            "UserStatusResponse": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserStatusResponse"
+                        },
+                        "examples": {
+                            "UserStatusResponse": {
+                                "value": {
+                                    "serviceResponse": {
+                                        "responseHeader": {
+                                            "service": "userStatus",
+                                            "status": "SUCCESS"
+                                        },
+                                        "responseBody": {
+                                            "responseDetails": [
+                                                {
+                                                    "orgCode": "KOTAK",
+                                                    "message": "user status has been successfully set to active",
+                                                    "userId": "KXT62411",
+                                                    "responseCode": "00"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Indicates the modify user status active API response"
+            },
+            "UserStatusErrorResponse": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserStatusErrorResponse"
+                        },
+                        "examples": {
+                            "UserStatusErrorResponse": {
+                                "value": {
+                                    "serviceResponse": {
+                                        "responseHeader": {
+                                            "service": "userStatus",
+                                            "status": "ERROR"
+                                        },
+                                        "responseBody": {
+                                            "responseDetails": [
+                                                {
+                                                    "errorMessage": "channel is mandatory!",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "orgCode is mandatory!",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "userId is mandatory!",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "userStatusCode is mandatory!",
+                                                    "errorCode": "error-400"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Indicates the error response for the mandatory field failure occurances"
+            },
+            "UserStatusErrorResponse2": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserStatusErrorResponse"
+                        },
+                        "examples": {
+                            "UserStatusErrorResponse2": {
+                                "value": {
+                                    "serviceResponse": {
+                                        "responseHeader": {
+                                            "service": "userStatus",
+                                            "status": "ERROR"
+                                        },
+                                        "responseBody": {
+                                            "responseDetails": [
+                                                {
+                                                    "orgCode": "KOTAK",
+                                                    "errorMessage": "This user already inActive",
+                                                    "errorCode": "error-404",
+                                                    "userId": "KXT62411"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Indicates the error response for the user already in-active state"
+            },
+            "UserStatusErrorResponse3": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserStatusErrorResponse"
+                        },
+                        "examples": {
+                            "UserStatusErrorResponse3": {
+                                "value": {
+                                    "serviceResponse": {
+                                        "responseHeader": {
+                                            "service": "userStatus",
+                                            "status": "ERROR"
+                                        },
+                                        "responseBody": {
+                                            "responseDetails": [
+                                                {
+                                                    "orgCode": "KOTAK",
+                                                    "errorMessage": "This user already active",
+                                                    "errorCode": "error-404",
+                                                    "userId": "KXT62411"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Indicates the error response for the user already in-active state"
+            },
+            "UserStatusErrorResponse4": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserStatusErrorResponse"
+                        },
+                        "examples": {
+                            "UserStatusErrorResponse4": {
+                                "value": {
+                                    "serviceResponse": {
+                                        "responseHeader": {
+                                            "service": "userStatus",
+                                            "status": "ERROR"
+                                        },
+                                        "responseBody": {
+                                            "responseDetails": [
+                                                {
+                                                    "orgCode": "KOTAK",
+                                                    "errorMessage": "This user doesn't exist",
+                                                    "errorCode": "error-404",
+                                                    "userId": "KXT62411ddd"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Indicates the error response for the user doesn't exist failure occurances."
+            },
+            "UserModifyErrorResponse4": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserModifyErrorResponse"
+                        },
+                        "examples": {
+                            "UserModifyErrorResponse4": {
+                                "value": {
+                                    "serviceResponse": {
+                                        "responseHeader": {
+                                            "service": "userModify",
+                                            "status": "ERROR"
+                                        },
+                                        "responseBody": {
+                                            "responseDetails": [
+                                                {
+                                                    "errorMessage": "Invalid characters are not allowed in userId !",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "Invalid characters are not allowed in firstName !",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "Invalid characters are not allowed in lastName !",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "Invalid email address!",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "Invalid mobile number!",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "Invalid orgType!",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "Invalid userType!",
+                                                    "errorCode": "error-400"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Indicates the error response for the invalid characters failure occurances."
+            },
+            "InvalidApiSessionToken": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "InvalidApiSessionToken": {
+                                "value": {
+                                    "errorMessage": "Invalid  Session Token value in the request header message.",
+                                    "status": "error"
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "This Indicates the invalid api session token in the request header"
+            },
+            "InvalidJsonRequest": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "InvalidJsonRequest": {
+                                "value": {
+                                    "errorMessage": "Invalid json request !",
+                                    "errorCode": "400",
+                                    "status": "error"
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "This describes the json structure if invalid values are passed"
+            },
+            "UserAddErrorResponse5": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserAddErrorResponse"
+                        },
+                        "examples": {
+                            "UserAddErrorResponse5": {
+                                "value": {
+                                    "serviceResponse": {
+                                        "responseHeader": {
+                                            "service": "userAdd",
+                                            "status": "ERROR"
+                                        },
+                                        "responseBody": {
+                                            "responseDetails": [
+                                                {
+                                                    "errorMessage": "Invalid action!",
+                                                    "errorCode": "error-400"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Indicates the error response for the invalid action failure occurances."
+            },
+            "UserModifyErrorResponse5": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserModifyErrorResponse"
+                        },
+                        "examples": {
+                            "UserModifyErrorResponse5": {
+                                "value": {
+                                    "serviceResponse": {
+                                        "responseHeader": {
+                                            "service": "userModify",
+                                            "status": "ERROR"
+                                        },
+                                        "responseBody": {
+                                            "responseDetails": [
+                                                {
+                                                    "errorMessage": "Invalid action!",
+                                                    "errorCode": "error-400"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Indicates the error response for the invalid action failure occurances."
+            },
+            "UserStatusResponse2": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserStatusResponse"
+                        },
+                        "examples": {
+                            "UserStatusResponse2": {
+                                "value": {
+                                    "serviceResponse": {
+                                        "responseHeader": {
+                                            "service": "userStatus",
+                                            "status": "SUCCESS"
+                                        },
+                                        "responseBody": {
+                                            "responseDetails": [
+                                                {
+                                                    "orgCode": "KOTAK",
+                                                    "message": "user status has been successfully set to inActive",
+                                                    "userId": "KXT62411",
+                                                    "responseCode": "00"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Indicates the modify user status inActive API response"
+            },
+            "UserStatusErrorResponse5": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/UserStatusErrorResponse"
+                        },
+                        "examples": {
+                            "userStatusErrorResponse5": {
+                                "value": {
+                                    "serviceResponse": {
+                                        "responseHeader": {
+                                            "service": "userStatus",
+                                            "status": "ERROR"
+                                        },
+                                        "responseBody": {
+                                            "responseDetails": [
+                                                {
+                                                    "errorMessage": "Invalid orgType!",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "Invalid userType!",
+                                                    "errorCode": "error-400"
+                                                },
+                                                {
+                                                    "errorMessage": "Invalid userStatusCode!",
+                                                    "errorCode": "error-400"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Indicates the error response for the invalid code failure occurances."
+            }
+        }
+    }
+}

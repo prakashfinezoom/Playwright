@@ -1,0 +1,1 @@
+npx playwright test tests/ADrequestManual tests/FileUpload --workers=1

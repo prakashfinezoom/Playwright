@@ -1,0 +1,1 @@
+./run-influxdb.sh scripts/dataparameter.js
